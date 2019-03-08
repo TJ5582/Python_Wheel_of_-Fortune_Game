@@ -1,0 +1,108 @@
+class Player:
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def getName(self):
+        return self.name
+
+    def getScore(self):
+        return self.score
+
+    def setName(self, name):
+        self.name = name
+
+    def setScore(self, score):
+        self.score = score
+
+
+
+
+
+def compute_player_score(current_player, number_of_times_letter_in_word, spin_value):
+    score = number_of_times_letter_in_word * int(spin_value)
+    current_player_score = current_player.getScore() + score
+    current_player.setScore(current_player_score)
+    return current_player
+
+
+def play_game(blank_puzzle, puzzle, wheel_values):
+    previous_guess = list()
+    puzzle = puzzle.lower()
+    number_of_letters_left = len(puzzle)
+    player1_name = input('Player 1 please enter your name: ')
+    player2_name = input('Player 2 please enter your name: ')
+    player3_name = input('Player 3 please enter your name: ')
+
+    #create the three players, the first parameter is the player's name, the second parameter is the players score
+    player1 = Player(player1_name, 0)
+    player2 = Player(player2_name, 0)
+    player3 = Player(player3_name, 0)
+
+    current_player = player1
+
+    #here is where I started my while loop...feel free to change the condition of the loop
+    while number_of_letters_left > 0:
+
+
+
+def get_index_list(user_guess, puzzle, blank_puzzle):
+    index_list = list()
+    index = 0
+    for letter in puzzle:
+        if letter == user_guess:
+            index_list.append(index)
+        index += 1
+
+    return index_list
+
+
+def swap_letters(user_guess, puzzle, blank_puzzle, index_list):
+    index = 0
+    blank_puzzle_list = list(blank_puzzle)
+    for letter in blank_puzzle_list:
+        if index in index_list:
+            blank_puzzle_list[index] = user_guess
+        index += 1
+
+    return blank_puzzle_list
+
+
+def transform_puzzle(user_guess, puzzle, blank_puzzle):
+    index_list = get_index_list(user_guess, puzzle, blank_puzzle)
+    transformed_puzzle = swap_letters(user_guess, puzzle, blank_puzzle, index_list)
+    return transformed_puzzle
+
+
+#determines if the user's guess is in the puzzle
+def is_guess_in_puzzle(user_guess, puzzle):
+    if user_guess in puzzle:
+        return True
+    else:
+        return False
+
+
+def change_player(current_player, player1, player2, player3):
+    if current_player == player1:
+        current_player = player2
+    elif current_player == player2:
+        current_player = player3
+    else:
+        current_player = player1
+    return current_player
+
+
+def change_to_underscore_puzzle(puzzle):
+    intab = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ '
+    outtab = '____________________________________________________ '
+    trantab = str.maketrans(intab, outtab)
+    return puzzle.translate(trantab)
+
+def main():
+    print("hi")
+    #please write the main function
+
+
+
+
+main()
