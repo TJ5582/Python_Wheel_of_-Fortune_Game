@@ -1,5 +1,6 @@
 # Python_Wheel_of_-Fortune_Game
 Created Wheel_of_ Fortune_Game using python code
+game.py  = contains the code
 
 You will create a program that is a simple game of Wheel of Fortune
 (http://en.wikipedia.org/wiki/Wheel_of_Fortune_(U.S._game_show)).
